@@ -1,0 +1,78 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h1>Order Request</h1>
+
+<!--END OF THE FORM
+    <form asp-action="Delivery" asp-controller="Index" method="post">
+-->
+    @using (Html.BeginForm("Index", "Delivery", FormMethod.Post))
+{
+
+        <table>
+    <tr>
+        <td>@Html.Label("Order Id")</td>
+        <td>@Html.TextBox("OrderId")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Order Key")</td>
+        <td>@Html.Password("OrderKey")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Phone Number")</td>
+        <td>@Html.TextBox("Phone")</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Email Address")</td>
+        <td>@Html.TextBox("Email")</td>
+     </tr>
+     <tr>
+         <td>@Html.Label("Quantity")</td>
+         <td><input type="number" name="Quantity" id="Quantity" value="1" min="1" max="10" size="250"></td>
+     </tr>
+     <tr>
+         <td>@Html.Label("Unit Price")</td>
+         <td>@Html.TextBox("Price")</td>
+     </tr>
+    <tr>
+        <td>@Html.Label("Delivery Payment") &nbsp;&nbsp;</td>
+        <td>@Html.RadioButton("Payment", "Cash", true) @Html.Label("Cash Money")
+            @Html.RadioButton("Payment", "Cards") @Html.Label("Credit/Debit Card")
+        </td>
+    </tr>
+
+        <tr>
+            <td>@Html.Label("Delivery Options") &nbsp;&nbsp;</td>
+            <td>
+                @Html.CheckBox("Packaging") @Html.Label("Packaging")
+                @Html.CheckBox("Tracking", true) @Html.Label("Tracking")
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Location")</td>
+            <td>
+                @*Html.DropDownList("Location",
+                         new SelectList(Enum.GetNames(typeof(Location))), "--choose location--")*@
+                @Html.DropDownList("Location", @Html.GetEnumSelectList<Location>())
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Destination Address")</td>
+            <td>@Html.TextArea("Destination")</td>
+        </tr>
+        <tr>
+            <td><button type="submit">Send Order</button></td>
+            <td><input type="reset" value="Clear" /></td>
+
+        </tr>
+
+</table>
+}
+<!-- 
+END OF THE FORM 
+</form>
+-->

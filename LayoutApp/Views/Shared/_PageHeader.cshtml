@@ -1,0 +1,44 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<header id="header" class="header d-flex align-items-center">
+
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <a asp-action="Index" asp-controller="Home" class="logo d-flex align-items-center">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <img src="~/assets/img/logo.png" alt="">
+            <h1>Fast Delivery<span>.</span></h1>
+        </a>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a asp-action="Order" asp-controller="Delivery">Order</a></li>
+                <li class="dropdown">
+                    <a asp-controller="Delivery" asp-action="Index"><span>Delivery Options</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <ul>
+                        <li><a asp-controller="Delivery" asp-action="Grocery">Grocery Delivery</a></li>
+                        <li class="dropdown">
+                            <a asp-controller="Delivery" asp-action="Pharmacy"><span>Pharmacy Delivery</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                <li><a href="#">Medicine </a></li>
+                                <li><a href="#">Cosmetics</a></li>
+                            </ul>
+                        </li>
+                        <li><a asp-controller="Delivery" asp-action="Restaurant">Restaurant Delivery</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav><!-- .navbar -->
+
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+</header><!-- End Header -->
