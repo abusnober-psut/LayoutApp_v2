@@ -15,27 +15,29 @@
         <table>
     <tr>
         <td>@Html.Label("Order Id")</td>
-        <td>@Html.TextBox("OrderId")</td>
+        <td>@Html.TextBox("OrderId") <span asp-validation-for="OrderId" class="error-text"></span></td>
     </tr>
     <tr>
         <td>@Html.Label("Order Key")</td>
-        <td>@Html.Password("OrderKey")</td>
+            <td>@Html.Password("OrderKey")  <span asp-validation-for="OrderKey" class="error-text"></span></td>
     </tr>
     <tr>
         <td>@Html.Label("Phone Number")</td>
-        <td>@Html.TextBox("Phone")</td>
+            <td>@Html.TextBox("Phone") <span asp-validation-for="Phone" class="error-text"></span></td>
     </tr>
     <tr>
         <td>@Html.Label("Email Address")</td>
-        <td>@Html.TextBox("Email")</td>
+            <td>@Html.TextBox("Email")  <span asp-validation-for="Email" class="error-text"></span></td>
      </tr>
      <tr>
          <td>@Html.Label("Quantity")</td>
-         <td><input type="number" name="Quantity" id="Quantity" value="1" min="1" max="10" size="250"></td>
+         <td><input type="number" name="Quantity" id="Quantity" value="1" min="1" max="10" size="250">
+                <span asp-validation-for="Quantity" class="error-text"></span>
+            </td>
      </tr>
      <tr>
          <td>@Html.Label("Unit Price")</td>
-         <td>@Html.TextBox("Price")</td>
+            <td>@Html.TextBox("Price")  <span asp-validation-for="Price" class="error-text"></span></td>
      </tr>
     <tr>
         <td>@Html.Label("Delivery Payment") &nbsp;&nbsp;</td>
@@ -62,7 +64,7 @@
 
         <tr>
             <td>@Html.Label("Destination Address")</td>
-            <td>@Html.TextArea("Destination")</td>
+            <td>@Html.TextArea("Destination") <span asp-validation-for="Destination" class="error-text"></span></td>
         </tr>
         <tr>
             <td><button type="submit">Send Order</button></td>
@@ -71,8 +73,11 @@
         </tr>
 
 </table>
+
+    @Html.ValidationSummary(false, "Please fix the following Errors:", new {@class="error-text"}) 
 }
 <!-- 
 END OF THE FORM 
 </form>
 -->
+
