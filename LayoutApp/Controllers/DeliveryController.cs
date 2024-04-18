@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using LayoutApp.Models;
 
 namespace LayoutApp.Controllers
 {
@@ -6,7 +7,17 @@ namespace LayoutApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            try
+            {
+                string msg = null;
+                ViewBag.Message = msg.Length;
+
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("Error", new ErrorViewModel());
+            }
         }
 
         public IActionResult Grocery()
